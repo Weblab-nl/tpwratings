@@ -70,7 +70,6 @@ class TPWRatings_Ratings {
 
         //fetch company ratings
         $ratingsData = $this->getCompanyRatings();
-        print_r($ratingsData);
 
         //if failed fetching company ratings return false
         if (!$ratingsData){

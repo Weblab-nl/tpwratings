@@ -1,11 +1,12 @@
 <?php
 
 //include library files
+/*
 require_once 'TPWRatings/Config.php';
 require_once 'TPWRatings/Ratings.php';
 require_once 'TPWRatings/Helpers.php';
 require_once 'TPWRatings/Cache.php';
-
+*/
 
 
 class TPWRatings {

@@ -40,7 +40,7 @@ class TPWRatings_Ratings {
         }
 
         //read data from API
-        $apiUrl = "https://api.theperfectwedding.nl/companies/$this->companyId?fields=average_rating,rating_count";
+        $apiUrl = "https://api.theperfectwedding.nl/companies/$this->companyId?fields=id,average_rating,rating_count,name,slug";
         $apiResponse = TPWRatings_Helpers::curlGet($apiUrl);
 
         if (!$apiResponse){
@@ -80,6 +80,9 @@ class TPWRatings_Ratings {
         $response= new stdClass();
         $response->averageRating = $ratingsData->companies[0]->average_rating;
         $response->ratingsCount = $ratingsData->companies[0]->rating_count;
+        $response->companyName = $ratingsData->companies[0]->name;
+        $response->companyId = $ratingsData->companies[0]->id;
+        $response->slug = $ratingsData->companies[0]->slug;
 
         return $response;
 

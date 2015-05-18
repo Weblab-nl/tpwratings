@@ -35,6 +35,9 @@ class TPWRatings {
 
         $this->averageRating = $ratingsData->averageRating;
         $this->ratingCount = $ratingsData->ratingsCount;
+        $this->companyName = $ratingsData->companyName;
+        $this->companyId = $ratingsData->companyId;
+        $this->slug = $ratingsData->slug;
         $this->valid = true;
     }
 
@@ -55,6 +58,9 @@ class TPWRatings {
         //replace the placeholders with the values
         $widget = str_replace ("{#AVERAGE_RATING#}",$this->averageRating,$this->template);
         $widget = str_replace ("{#RATE_COUNT#}",$this->ratingCount,$widget);
+        $widget = str_replace ("{#COMPANY_NAME#}",$this->companyName,$widget);
+        $widget = str_replace ("{#COMPANY_ID#}",$this->companyId,$widget);
+        $widget = str_replace ("{#COMPANY_SLUG#}",$this->slug,$widget);
         return $widget;
     }
 

@@ -7,10 +7,7 @@
 			<span class="tpw_rating_number" itemprop="ratingValue">{#AVERAGE_RATING#}</span>
             <meta itemprop="bestRating" content="10">
 			<span class="tpw_rating_info">
-				<span class="tpw_rating_info_stars">
-					★ ★ ★ ★
-					<span>☆</span>
-				</span>
+				<span class="tpw_rating_info_stars">{#STAR_SNIPPET#}</span>
 				<span>uit <span itemprop="ratingCount">{#RATE_COUNT#}</span> ervaringen</span>
 			</span>
         </p>

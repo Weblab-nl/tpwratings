@@ -38,6 +38,7 @@ class TPWRatings {
         $this->companyName = $ratingsData->companyName;
         $this->companyId = $ratingsData->companyId;
         $this->slug = $ratingsData->slug;
+        $this->starSnippet = TPWRatings_Helpers::ratingToStarSnippet($this->averageRating);
         $this->valid = true;
     }
 
@@ -61,6 +62,9 @@ class TPWRatings {
         $widget = str_replace ("{#COMPANY_NAME#}",$this->companyName,$widget);
         $widget = str_replace ("{#COMPANY_ID#}",$this->companyId,$widget);
         $widget = str_replace ("{#COMPANY_SLUG#}",$this->slug,$widget);
+        $widget = str_replace ("{#STAR_SNIPPET#}",$this->starSnippet,$widget);
+
+
         return $widget;
     }
 

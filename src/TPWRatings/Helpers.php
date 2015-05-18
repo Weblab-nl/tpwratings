@@ -59,6 +59,26 @@ class TPWRatings_Helpers {
     }
 
 
+    /**
+     * Transform a rating into a visual star representation
+     * @param $rating
+     * @return string
+     */
+    public static function ratingToStarSnippet ($rating){
+        $stars = round($rating/2);
+        $snippet = "";
+        for ($i=1;$i<=5;$i++){
+            if ($i<=$stars){
+                $snippet .= "★ ";
+            } else {
+                $snippet .= "☆ ";
+            }
+        }
+        return $snippet;
+
+    }
+
+
 
 
 }

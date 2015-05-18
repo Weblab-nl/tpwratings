@@ -1,0 +1,14 @@
+{
+  "name": "tpwratings/tpwratings",
+  "type": "library",
+  "version": "1.0.0",
+  "description": "API client library to display The Perfect Wedding Ratings",
+  "require": {
+    "php": ">=5.2.0"
+  },
+  "autoload": {
+    "psr-0": {
+      "TPWRatings": "src/"
+    }
+  }
+}

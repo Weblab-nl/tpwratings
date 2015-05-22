@@ -5,11 +5,11 @@
  * Class TPWRatings_Cache - handles the TPW Ratings Plugin caching
  * @author Weblab.nl - Traian Zainescu
  */
-
 class TPWRatings_Cache {
 
     /**
      * Check if we have cached data and if it did not expired
+     *
      * @return array|bool|mixed
      */
     public function readFromCache() {
@@ -29,7 +29,8 @@ class TPWRatings_Cache {
     }
 
     /**
-     *  Helper function to write the reviews data into cache
+     * Helper function to write the reviews data into cache
+     *
      * @param $reviewsData          JSON Representation of the reviews data
      */
     public function writeCache ($reviewsData) {

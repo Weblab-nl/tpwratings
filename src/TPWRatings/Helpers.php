@@ -3,13 +3,14 @@
 
 /**
  * Class TPWRatings_Helpers - helper functions for the TPW Ratings plugin
- * @author Weblab.nl - Traian Zainescu
  *
+ * @author Weblab.nl - Traian Zainescu
  */
 class TPWRatings_Helpers {
 
     /**
      * Helper function to query the remote API service using CURL library
+     *
      * @param $url              The url to fetch data from
      * @return mixed
      */
@@ -40,45 +41,5 @@ class TPWRatings_Helpers {
         //everything went fine - return result
         return $result;
     }
-
-    /**
-     * Calculate the company id by applying base64decode
-     * and removing the characters that are not numbers from the result
-     */
-    public static function getCompanyIdFromKey($key) {
-
-
-        //decode key using base64
-        $decodedKey = base64_decode($key);
-
-        //key contains the numeric company id obfuscated with random letters remove anything that is not a number
-        $companyId = preg_replace('/[^0-9.]/','',$decodedKey);
-
-        //return companyId
-        return $companyId;
-    }
-
-
-    /**
-     * Transform a rating into a visual star representation
-     * @param $rating
-     * @return string
-     */
-    public static function ratingToStarSnippet ($rating){
-        $stars = round($rating/2);
-        $snippet = "";
-        for ($i=1;$i<=5;$i++){
-            if ($i<=$stars){
-                $snippet .= "★ ";
-            } else {
-                $snippet .= "☆ ";
-            }
-        }
-        return $snippet;
-
-    }
-
-
-
 
 }

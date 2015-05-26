@@ -51,7 +51,7 @@ class TPWRatings {
         $tpwRatings = new TPWRatings_Ratings($key, $type);
 
         // set the ratings data
-        $this->ratingsData = $tpwRatings->retrieveRatings();
+        $this->ratingData = $tpwRatings->retrieveRatings();
     }
 
 

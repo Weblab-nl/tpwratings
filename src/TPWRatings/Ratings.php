@@ -110,7 +110,7 @@ class TPWRatings_Ratings {
         $ratingsData = $this->getCompanyRatings();
         
         //if failed fetching company ratings return false
-        if (!$ratingsData){
+        if (is_null($ratingsData)) {
             return null;
         }
 

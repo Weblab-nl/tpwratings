@@ -2,13 +2,22 @@
   "name": "weblab/tpwratings",
   "type": "library",
   "version": "1.0.0",
-  "description": "API client library to display The Perfect Wedding Ratings",
+  "description": "API client library to display ThePerfectWedding Ratings",
+  "license": "Apache-2.0",
+  "authors": [
+    {
+      "name": "ThePerfectWedding Devs",
+      "email": "development@theperfectwedding.nl",
+      "homepage": "http://weblab.nl",
+      "role": "Developer"
+    }
+  ],
   "require": {
-    "php": ">=5.3.0"
+    "php": ">=5.2.0"
   },
   "autoload": {
     "psr-0": {
-      "TPWRatings": "src/"
+      "Weblab\\TPWRatings\\": "src/"
     }
   }
 }

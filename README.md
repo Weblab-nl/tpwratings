@@ -14,9 +14,9 @@ Installation
 
 ### Install manually:
 
-Download the latest release from: https://github.com/Weblab-nl/tpwratings/archive/master.zip
+Download the latest release from: https://github.com/Weblab-nl/tpwratings/archive/master.zip and unzip the library into your project.
 
-Using the Library:
+Using the Library
 -----------------
 
     <?php

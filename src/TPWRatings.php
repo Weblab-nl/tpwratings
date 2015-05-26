@@ -92,7 +92,7 @@ class TPWRatings {
         $snippet = str_replace ("{#COMPANY_NAME#}", $this->ratingData->companyName, $snippet);
 
         // add the snippet to the widget
-        $widget = str_replace ("{#SNIPPET#}", ' ', $snippet);
+        $widget = str_replace ("{#SNIPPET#}", $snippet, $widget);
 
         // done, return the string representation of the TPW widget
         return $widget;

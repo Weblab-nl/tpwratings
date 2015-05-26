@@ -117,7 +117,7 @@ class TPWRatings_Ratings {
         //extract the average rating and the ratingsCount
         $response= new stdClass();
         $response->averageRating = $ratingsData->companies_widget[0]->average_rating;
-        $response->ratingsCount = $ratingsData->companies_widget[0]->rating_count;
+        $response->ratingCount = $ratingsData->companies_widget[0]->rating_count;
         $response->companyName = $ratingsData->companies_widget[0]->name;
         $response->widget_code = $ratingsData->companies_widget[0]->widget_code;
         $response->profile_url = $ratingsData->companies_widget[0]->profile_url;

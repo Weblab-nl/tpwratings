@@ -1,6 +1,5 @@
 <?php
 
-
 /**
  * Class TPWRatings_Cache - handles the TPW Ratings Plugin caching
  * @author Weblab.nl - Traian Zainescu
@@ -31,11 +30,20 @@ class TPWRatings_Cache {
     /**
      * Helper function to write the reviews data into cache
      *
-     * @param $reviewsData          JSON Representation of the reviews data
+     * @param   string              JSON Representation of the reviews data
+     * @param   boolean             Whether it was possible to write to the cache file
      */
     public function writeCache ($reviewsData) {
-        $fCache = fopen (TPWRatings_Config::CACHE_PATH,'w');
+        // open the cache file if possible
+        $fCache = fopen(TPWRatings_Config::CACHE_PATH, 'w');
+
+        // if it was not possible to open the cache file, return out
+        if ($fCache === false) {
+            return false;
+        }
+
+        // write the widget information to the cache and close the cache file again
         fputs ($fCache,$reviewsData);
-        fclose ($fCache);
+        return fclose ($fCache);
     }
 }

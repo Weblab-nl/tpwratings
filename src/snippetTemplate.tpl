@@ -1,4 +1,4 @@
-<p>
+<p style="margin:0;padding:0;text-align:center;">
     <small>
         <span itemprop="name">{#COMPANY_NAME#}</span>
             <span itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating">

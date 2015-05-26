@@ -76,7 +76,7 @@ class TPWRatings_Ratings {
         }
 
         //read data from API
-        $apiUrl = "https://api.theperfectwedding.nl/companies/widget/$this->companyId?type=$this->type";
+        $apiUrl = "https://api.theperfectwedding.nl/companies/widget/$this->companyId?type=$this->variant";
 
         $apiResponse = TPWRatings_Helpers::curlGet($apiUrl);
 

@@ -1,7 +1,7 @@
 {
   "name": "weblab/tpwratings",
   "type": "library",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "API client library to display ThePerfectWedding Ratings",
   "license": "Apache-2.0",
   "authors": [

@@ -76,7 +76,7 @@ class TPWRatings {
         }
 
         // load the widget code into the tempalte
-        $widget = str_replace ("{#WIDGET_CODE#}", $this->ratingData->widget_code, $this->template);
+        $widget = str_replace ("{#WIDGET_CODE#}", $this->ratingData->widgetCode, $this->template);
 
         // if there are no ratings, just return the base widget
         if ($this->ratingData->ratingCount < 1) {
@@ -90,6 +90,7 @@ class TPWRatings {
         $snippet = str_replace ("{#AVERAGE_RATING#}", $this->ratingData->averageRating, $this->snippetTemplate);
         $snippet = str_replace ("{#RATE_COUNT#}", $this->ratingData->ratingCount, $snippet);
         $snippet = str_replace ("{#COMPANY_NAME#}", $this->ratingData->companyName, $snippet);
+        $snippet = str_replace ("{#PROFILE_URL#}", $this->ratingData->profileUrl, $snippet);
 
         // add the snippet to the widget
         $widget = str_replace ("{#SNIPPET#}", $snippet, $widget);
@@ -99,8 +100,3 @@ class TPWRatings {
     }
 
 }
-
-
-
-
-?>

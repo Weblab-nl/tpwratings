@@ -118,8 +118,8 @@ class TPWRatings_Ratings {
         $response->averageRating = $ratingsData->companies_widget[0]->average_rating;
         $response->ratingCount = $ratingsData->companies_widget[0]->rating_count;
         $response->companyName = $ratingsData->companies_widget[0]->name;
-        $response->widget_code = $ratingsData->companies_widget[0]->widget_code;
-        $response->profile_url = $ratingsData->companies_widget[0]->profile_url;
+        $response->widgetCode = $ratingsData->companies_widget[0]->widget_code;
+        $response->profileUrl = $ratingsData->companies_widget[0]->profile_url;
 
         // done, return the response
         return $response;

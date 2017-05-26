@@ -2,6 +2,8 @@
 
     {#WIDGET_CODE#}
 
-    {#SNIPPET#}
+    {#RICH_SNIPPET#}
+
+    {#INFORMATION#}
 
 </div>

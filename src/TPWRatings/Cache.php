@@ -2,7 +2,8 @@
 
 /**
  * Class TPWRatings_Cache - handles the TPW Ratings Plugin caching
- * @author Weblab.nl - Traian Zainescu
+ * 
+ * @author Weblab.nl - Maarten Kooiker
  */
 class TPWRatings_Cache {
 
@@ -12,14 +13,13 @@ class TPWRatings_Cache {
      * @return array|bool|mixed
      */
     public function readFromCache() {
-
         //if cache file does not exists return false
         if (!file_exists(TPWRatings_Config::CACHE_PATH)){
             return false;
         }
 
         //if cache expired return false
-        if (time()-filemtime(TPWRatings_Config::CACHE_PATH)>TPWRatings_Config::CACHING_TIME){
+        if ((time() - filemtime(TPWRatings_Config::CACHE_PATH)) > TPWRatings_Config::CACHING_TIME){
             return false;
         }
 
@@ -30,10 +30,10 @@ class TPWRatings_Cache {
     /**
      * Helper function to write the reviews data into cache
      *
-     * @param   string              JSON Representation of the reviews data
-     * @param   boolean             Whether it was possible to write to the cache file
+     * @param    string              JSON Representation of the reviews data
+     * @return   boolean             Whether it was possible to write to the cache file
      */
-    public function writeCache ($reviewsData) {
+    public function writeCache($reviewsData) {
         // open the cache file if possible
         $fCache = fopen(TPWRatings_Config::CACHE_PATH, 'w');
 
@@ -43,7 +43,9 @@ class TPWRatings_Cache {
         }
 
         // write the widget information to the cache and close the cache file again
-        fputs ($fCache,$reviewsData);
-        return fclose ($fCache);
+        fputs($fCache, $reviewsData);
+
+        // done, close the fileand return
+        return fclose($fCache);
     }
 }

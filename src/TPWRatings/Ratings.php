@@ -3,14 +3,14 @@
 /**
  * Class TPWRatings_Ratings fetches the ratings from API and calls the template to display the widget
  *
- * @author Weblab.nl - Zainescu Traian
+ * @author Weblab.nl - Maarten Kooiker
  */
 class TPWRatings_Ratings {
 
     /**
-     * The company widget identifier
+     * The company widget identifier hash string
      *
-     * @var string              The company id
+     * @var string              The company id hash string
      */
     private $companyId;
 
@@ -38,9 +38,14 @@ class TPWRatings_Ratings {
     /**
      * Constructor - init the cache manager and reads the companyId from App Config
      */
-    public function __construct ($companyKey, $variants = 'light') {
+    public function __construct($companyKey, $variants = 'light') {
+        // set the class that handles the caching
         $this->cacheManager = new TPWRatings_Cache();
+
+        // set the companyId STRING
         $this->companyId = $companyKey;
+
+        // set the variant requested (light if not given)
         $this->setVariant($variants);
     }
 
@@ -68,61 +73,50 @@ class TPWRatings_Ratings {
      *
      * @return array|null|mixed
      */
-    private function getCompanyRatings() {
-        //try returning data from cache
+    public function getCompanyRatings() {
+        // get the data from the cache if exists
         $cachedData = $this->cacheManager->readFromCache();
+        
+        // if cached data was returned, return this data, we're done here
         if ($cachedData){
             return $cachedData;
         }
 
-        //read data from API
-        $apiUrl = "https://weblapi.theperfectwedding.nl/companies/widget/$this->companyId?variant=$this->variant";
+        // set the url to obtain the rating information from the weblapi
+        $apiUrl = sprintf(TPWRatings_Config::API_URL, $this->companyId, $this->variant);
+
+        // get the widget data from TPW
         $apiResponse = TPWRatings_Helpers::curlGet($apiUrl);
 
+        // write fetched data to cache
+        $this->cacheManager->writeCache($apiResponse);
+
+        // done, return the response
+        return $this->decodedApiResponse($apiResponse);
+    }
+
+    /**
+     * Function to decode the apiResponse
+     *
+     * @param  json                 json encoded api response
+     * @return                      json decoded api response | null
+     */
+    private function decodedApiResponse($apiResponse) {
         // if there is no response, return null
-        if (!$apiResponse){
+        if (is_null($apiResponse)) {
             return null;
         }
 
-        //try to decode API response
-        $decodedApiResponse = json_decode ($apiResponse);
+        // try to decode API response
+        $decodedApiResponse = json_decode($apiResponse);
 
-        //if we can not decode the API response return null
+        // if we can not decode the API response return null
         if (!$decodedApiResponse){
             return null;
         }
 
-        //write fetched data to cache
-        $this->cacheManager->writeCache($apiResponse);
-
-        // done, return the response
+        // done, return the decoded response
         return $decodedApiResponse;
-    }
-
-    /**
-     * Call the method to retrieve
-     *
-     * @return stdClass|null
-     */
-    public function retrieveRatings (){
-        //fetch company ratings
-        $ratingsData = $this->getCompanyRatings();
-        
-        //if failed fetching company ratings return false
-        if (is_null($ratingsData)) {
-            return null;
-        }
-
-        //extract the average rating and the ratingsCount
-        $response= new stdClass();
-        $response->averageRating = $ratingsData->companies_widget[0]->average_rating;
-        $response->ratingCount = $ratingsData->companies_widget[0]->rating_count;
-        $response->companyName = $ratingsData->companies_widget[0]->name;
-        $response->widgetCode = $ratingsData->companies_widget[0]->widget_code;
-        $response->profileUrl = $ratingsData->companies_widget[0]->profile_url;
-
-        // done, return the response
-        return $response;
     }
 
 }

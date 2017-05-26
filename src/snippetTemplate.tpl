@@ -1,13 +1,10 @@
 <p style="margin:0;padding:0;text-align:center;">
     <small>
-        <span itemprop="name">{#COMPANY_NAME#}</span>
-            <span itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating">
-                <meta itemprop="sameAs" content="{#PROFILE_URL#}" />
-                <meta itemprop="worstRating" content="1">
-                <meta itemprop="bestRating" content="10">
-                <span itemprop="ratingValue">{#AVERAGE_RATING#}</span>
+        <span>{#COMPANY_NAME#}</span>
+            <span>
+                <span>{#AVERAGE_RATING#}</span>
                 uit
-                <span itemprop="ratingCount">{#RATE_COUNT#}</span>
+                <span>{#RATE_COUNT#}</span>
                 ervaringen
             </span>
     </small>

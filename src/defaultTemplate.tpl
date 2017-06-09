@@ -1,4 +1,4 @@
-<div class="widget_tpw_rating_wrap" itemscope itemtype="http://schema.org/LocalBusiness">
+<div class="widget_tpw_rating_wrap">
 
     {#WIDGET_CODE#}
 
